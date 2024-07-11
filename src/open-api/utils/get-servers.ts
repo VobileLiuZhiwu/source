@@ -1,17 +1,19 @@
 import { OpenAPIV2, OpenAPIV3, OpenAPI } from 'openapi-types'
+import type { IHttpOperation } from './open-api-utils'
 
 /**
  * Returns the list of servers specified in the given OpenAPI document.
  */
 export function getServers(
-  document: OpenAPI.Document | OpenAPIV2.Document | OpenAPIV3.Document,
+  basePath: string | undefined,
+  operation: IHttpOperation,
 ): Array<string> {
-  if ('basePath' in document && typeof document.basePath !== 'undefined') {
-    return [document.basePath]
+  if (basePath) {
+    return [basePath]
   }
 
-  if ('servers' in document && typeof document.servers !== 'undefined') {
-    return document.servers.map((server) => server.url)
+  if (operation.servers && operation.servers.length > 0) {
+    return operation.servers.map((server) => server.url)
   }
 
   return ['/']

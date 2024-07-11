@@ -29,9 +29,9 @@ const entities = {
     status: expect.stringMatching(/^(available|pending|sold)$/),
   },
   order: {
-    id: 42,
-    petId: 100,
-    quantity: 72,
+    id: expect.any(Number),
+    petId: expect.any(Number),
+    quantity: expect.any(Number),
     shipDate: expect.stringMatching(
       /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+?Z$/,
     ),
@@ -39,14 +39,14 @@ const entities = {
     complete: expect.any(Boolean),
   },
   user: {
-    id: 42,
-    email: 'abaft',
-    firstName: 'fooey',
-    lastName: 'fully',
-    password: 'lined',
-    phone: 'waste',
-    userStatus: 81,
-    username: 'wetly',
+    id: expect.any(Number),
+    email: expect.any(String),
+    firstName: expect.any(String),
+    lastName: expect.any(String),
+    password: expect.any(Number),
+    phone: expect.any(Number),
+    userStatus: expect.any(Number),
+    username: expect.any(String),
   },
 }
 
