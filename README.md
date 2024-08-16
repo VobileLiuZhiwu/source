@@ -6,6 +6,8 @@
 
 <p align="center">Generate <a href="https://github.com/mswjs/msw">MSW</a> request handlers from HAR files, OpenAPI documents, and other sources.</p>
 
+## Only for tests
+
 ## Motivation
 
 This library has been created to simplify the mocking workflow when working with Mock Service Worker.
